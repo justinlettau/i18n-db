@@ -52,6 +52,7 @@
     "cli-table": "^0.3.1",
     "commander": "^4.1.1",
     "csv-parse": "^4.8.7",
+    "csv-stringify": "^5.3.6",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
     "inquirer": "^7.0.4",
