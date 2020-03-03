@@ -1,10 +1,11 @@
 import { fromJson, toJson } from './json';
+import { InterchangeItem } from '../interfaces';
 
 describe('converts', () => {
   const sourceLocale = 'en-US';
   const targetLocale = 'es-MX';
-  const items1 = [{ key: 'Greeting', source: 'Hello', target: 'Hola' }];
-  const items2 = [{ key: 'Greeting', source: null, target: 'Hola' }];
+  const items1: InterchangeItem[] = [{ key: 'Greeting', source: 'Hello', target: 'Hola' }];
+  const items2: InterchangeItem[] = [{ key: 'Greeting', source: null, target: 'Hola' }];
   const file1 = JSON.stringify(
     {
       sourceLocale,

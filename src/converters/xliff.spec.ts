@@ -1,3 +1,5 @@
+/// <reference types="../typings" />
+
 import { fromXliff, toXliff } from './xliff';
 
 describe('converts', () => {
