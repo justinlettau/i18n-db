@@ -1,0 +1,7 @@
+.nyc_output/
+node_modules/
+build/
+dist/
+i18n/
+i18n-exports/
+i18n.json
