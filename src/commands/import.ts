@@ -80,6 +80,11 @@ export async function importCmd(file: string, options: TranslationImportOptions)
       console.log(`Resource created: "${item.key}"`);
     }
 
+    if (!item.target) {
+      console.log(`Skipping translation "${item.key}", no value`);
+      continue;
+    }
+
     const translation = translations.find(x => x.resource.key === item.key);
 
     if (!translation || translation.value !== item.target) {

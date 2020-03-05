@@ -234,6 +234,6 @@ Clone the repo and run the following commands in the `i18n-db` directory:
 
 ```bash
 npm install
-npm run link
+npm link
 npm run build
 ```
