@@ -8,9 +8,12 @@ bootstrap();
 
 async function bootstrap() {
   program
-    .command('list [key]')
+    .command('list')
+    .option('-t, --term [value]', 'Optional search term to filter by. Wildcard character: `%`')
+    .option('-k, --key [value]', 'Optional resource key filter by. Wildcard character: `%`')
+    .option('-l, --locale [code]', 'Optional locale code to filter by.')
     .alias('ls')
-    .description('List translations by resource.')
+    .description('List translations.')
     .action(translationList);
 
   program

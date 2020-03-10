@@ -20,6 +20,36 @@ export class TranslationRepository extends Repository<Translation> {
   }
 
   /**
+   * Find all with filters.
+   *
+   * @param filters Optional filters.
+   */
+  findWhere(filters: { locale: string; key: string; term: string; }) {
+    const { locale, key, term } = filters;
+
+    const query = this.createQueryBuilder('translation')
+      .innerJoinAndSelect('translation.resource', 'resource')
+      .innerJoinAndSelect('translation.locale', 'locale')
+      .where('1 = 1');
+
+    if (locale) {
+      query.andWhere('locale.code = :code', { code: locale });
+    }
+
+    if (key) {
+      query.andWhere('resource.key like :key', { key });
+    }
+
+    if (term) {
+      query.andWhere('translation.value like :term', { term });
+    }
+
+    return query
+      .orderBy('locale.code')
+      .getMany();
+  }
+
+  /**
    * Find by Locale.
    *
    * @param codes Locale codes.
@@ -30,20 +60,6 @@ export class TranslationRepository extends Repository<Translation> {
       .innerJoinAndSelect('translation.locale', 'locale')
       .where('locale.code IN (:...codes)', { codes })
       .addOrderBy('resource.key')
-      .getMany();
-  }
-
-  /**
-   * Find by resource.
-   *
-   * @param key Resource key.
-   */
-  findByResource(key: string) {
-    return this.createQueryBuilder('translation')
-      .innerJoinAndSelect('translation.resource', 'resource')
-      .innerJoinAndSelect('translation.locale', 'locale')
-      .where('resource.key = :key', { key })
-      .orderBy('locale.code')
       .getMany();
   }
 

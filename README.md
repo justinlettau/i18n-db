@@ -152,14 +152,20 @@ Aliases:
 
 List all resources.
 
-### `translate list [key]`
+### `translate list`
 
 Aliases:
 
 - `t list [key]`
 - `t ls [key]`
 
-List translations by resource.
+List translations.
+
+| Option     | Alias | Type     | Description                                                | Default |
+| ---------- | ----- | -------- | ---------------------------------------------------------- | ------- |
+| `--term`   | `-t`  | `string` | Optional search term to filter by. Wildcard character: `%` | n/a     |
+| `--key`    | `-k`  | `string` | Optional resource key filter by. Wildcard character: `%`   | n/a     |
+| `--locale` | `-l`  | `string` | Optional locale code to filter by.                         | n/a     |
 
 ### `translate set [key] [value]`
 

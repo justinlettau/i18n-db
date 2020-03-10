@@ -22,6 +22,15 @@ export interface LocaleSetOptions {
 }
 
 /**
+ * Translation list options.
+ */
+export interface TranslationListOptions {
+  term?: string;
+  key?: string;
+  locale?: string;
+}
+
+/**
  * Translation set options.
  */
 export interface TranslationSetOptions {

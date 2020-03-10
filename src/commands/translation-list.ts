@@ -3,6 +3,7 @@ import Table from 'cli-table';
 
 import { getConfiguration } from '../configuration';
 import { getConnection } from '../connection';
+import { TranslationListOptions } from '../interfaces';
 import { TranslationRepository } from '../repositories/translation.repository';
 
 /**
@@ -10,23 +11,31 @@ import { TranslationRepository } from '../repositories/translation.repository';
  *
  * @param key Resource key.
  */
-export async function translationList(key: string) {
+export async function translationList(options: TranslationListOptions) {
   const config = getConfiguration();
   const connection = await getConnection(config);
   const translationRepo = connection.getCustomRepository(TranslationRepository);
-  const translations = await translationRepo.findByResource(key);
+  const translations = await translationRepo.findWhere({
+    locale: options.locale,
+    key: options.key,
+    term: options.term
+  });
 
   if (translations.length === 0) {
-    console.log(chalk.red(`No translations found for "${key}"!`));
+    console.log(chalk.red('No translations found!'));
     return;
   }
 
   const table = new Table({
-    head: ['Locale', 'value']
+    head: ['Locale', 'Key', 'value']
   });
 
   translations.forEach(item => {
-    table.push([item.locale.code, item.value]);
+    table.push([
+      item.locale.code,
+      item.resource.key,
+      item.value.length > 50 ? `${item.value.substring(0, 50)}...` : item.value
+    ]);
   });
 
   console.log(table.toString());
