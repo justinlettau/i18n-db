@@ -152,12 +152,12 @@ Aliases:
 
 List all resources.
 
-### `resource remove [code]`
+### `resource remove [key]`
 
 Aliases:
 
-- `r remove [code]`
-- `r rm [code]`
+- `r remove [key]`
+- `r rm [key]`
 
 Remove a resource record and all associated translations.
 

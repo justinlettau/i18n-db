@@ -14,7 +14,7 @@ async function bootstrap() {
     .action(resourceList);
 
   program
-    .command('remove [code]')
+    .command('remove [key]')
     .alias('rm')
     .description('Remove a resource record and all associated translations.')
     .action(resourceRemove);
