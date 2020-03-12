@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/justinlettau/i18n-db/compare/v1.1.0...v1.2.0) (2020-03-12)
+
+
+### Features
+
+* resource remove command ([95cc08d](https://github.com/justinlettau/i18n-db/commit/95cc08df661b37f5b524a43911402ddf2985d244))
+
 ## [1.1.0](https://github.com/justinlettau/i18n-db/compare/v1.0.2...v1.1.0) (2020-03-10)
 
 
