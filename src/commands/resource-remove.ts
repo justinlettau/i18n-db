@@ -3,22 +3,22 @@ import * as inquirer from 'inquirer';
 
 import { getConfiguration } from '../configuration';
 import { getConnection } from '../connection';
-import { LocaleRepository } from '../repositories/locale.repository';
+import { ResourceRepository } from '../repositories/resource.repository';
 import { TranslationRepository } from '../repositories/translation.repository';
 
 /**
- * Remove locale.
+ * Remove resource.
  *
- * @param code Local code.
+ * @param key Resource key.
  */
-export async function localeRemove(code: string) {
+export async function resourceRemove(key: string) {
   const config = getConfiguration();
   const connection = await getConnection(config);
-  const localeRepo = connection.getCustomRepository(LocaleRepository);
-  const locale = await localeRepo.findByCode(code);
+  const resourceRepo = connection.getCustomRepository(ResourceRepository);
+  const resource = await resourceRepo.findByKey(key);
 
-  if (!locale) {
-    console.log(chalk.red(`Local "${code}" not found!`));
+  if (!resource) {
+    console.log(chalk.red(`Resource "${key}" not found!`));
     return;
   }
 
@@ -26,7 +26,7 @@ export async function localeRemove(code: string) {
     {
       type: 'confirm',
       name: 'continue',
-      message: `Are you sure you want to remove "${code}" and all associated translations?`
+      message: `Are you sure you want to remove "${key}" and all associated translations?`
     }
   ]);
 
@@ -36,8 +36,8 @@ export async function localeRemove(code: string) {
   }
 
   const translationRepo = connection.getCustomRepository(TranslationRepository);
-  await translationRepo.deleteByLocalId(locale.id);
-  await localeRepo.deleteById(locale.id);
+  await translationRepo.deleteByResourceId(resource.id);
+  await resourceRepo.deleteById(resource.id);
 
-  console.log(chalk.green(`Local removed: "${code}"!`));
+  console.log(chalk.green(`Resource removed: "${key}"!`));
 }

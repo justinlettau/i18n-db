@@ -26,4 +26,17 @@ export class ResourceRepository extends Repository<Resource> {
       .where('key = :key', { key })
       .getOne();
   }
+
+  /**
+   * Delete by id.
+   *
+   * @param id Resource id.
+   */
+  deleteById(id: number) {
+    return this.createQueryBuilder()
+      .delete()
+      .from(Resource)
+      .where('id = :id', { id })
+      .execute();
+  }
 }

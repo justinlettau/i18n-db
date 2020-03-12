@@ -30,13 +30,13 @@ export class LocaleRepository extends Repository<Locale> {
   /**
    * Delete by code.
    *
-   * @param code Locale code.
+   * @param id Locale id.
    */
-  deleteByCode(code: string) {
+  deleteById(id: number) {
     return this.createQueryBuilder()
       .delete()
       .from(Locale)
-      .where('code = :code', { code })
+      .where('id = :id', { id })
       .execute();
   }
 }

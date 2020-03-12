@@ -79,13 +79,26 @@ export class TranslationRepository extends Repository<Translation> {
   /**
    * Delete by locale id.
    *
-   * @param localeId locale id.
+   * @param localeId Locale id.
    */
   deleteByLocalId(localeId: number) {
     return this.createQueryBuilder()
       .delete()
       .from(Translation)
       .where('localeId = :localeId', { localeId })
+      .execute();
+  }
+
+  /**
+   * Delete by resource key.
+   *
+   * @param resourceId resource id.
+   */
+  deleteByResourceId(resourceId: number) {
+    return this.createQueryBuilder()
+      .delete()
+      .from(Translation)
+      .where('resourceId = :resourceId', { resourceId })
       .execute();
   }
 }

@@ -147,10 +147,19 @@ Remove a locale record and all associated translations.
 
 Aliases:
 
-- `l list`
-- `l ls`
+- `r list`
+- `r ls`
 
 List all resources.
+
+### `resource remove [code]`
+
+Aliases:
+
+- `r remove [code]`
+- `r rm [code]`
+
+Remove a resource record and all associated translations.
 
 ### `translate list`
 
