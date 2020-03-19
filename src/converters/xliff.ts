@@ -11,12 +11,12 @@ import { InterchangeItem } from '../interfaces';
  * @param items Interchange items.
  */
 export function toXliff(source: string, target: string, items: InterchangeItem[]) {
-  const result: { [key: string]: { source: string; target: string; note?: string; } } = {};
+  const result: { [key: string]: { source: string; target: string; note?: string } } = {};
 
   items.forEach(item => {
     result[item.key] = {
       source: item.source,
-      target: item.target,
+      target: item.target
     };
 
     if (item.note) {

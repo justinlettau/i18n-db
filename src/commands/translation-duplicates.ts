@@ -25,11 +25,7 @@ export async function translationDuplicates() {
   });
 
   duplicates.forEach(item => {
-    table.push([
-      chalk.yellow(item.occurrences),
-      truncate(item.value),
-      item.keys.split(',').join('\n')
-    ]);
+    table.push([chalk.yellow(item.occurrences), truncate(item.value), item.keys.split(',').join('\n')]);
   });
 
   console.log(table.toString());

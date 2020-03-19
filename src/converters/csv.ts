@@ -11,10 +11,7 @@ import { InterchangeItem } from '../interfaces';
  * @param items Interchange items.
  */
 export function toCsv(source: string, target: string, items: InterchangeItem[]) {
-  return stringify([
-    ['Key', source, target, 'Note'],
-    ...items.map(x => [x.key, x.source, x.target, x.note])
-  ]);
+  return stringify([['Key', source, target, 'Note'], ...items.map(x => [x.key, x.source, x.target, x.note])]);
 }
 
 /**

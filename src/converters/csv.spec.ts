@@ -3,8 +3,8 @@ import { fromCsv, toCsv } from './csv';
 describe('converts', () => {
   const sourceLocale = 'en-US';
   const targetLocale = 'es-MX';
-  const items = [{ key: 'Greeting', source: 'Hello', target: 'Hola' }];
-  const file = 'Key,en-US,es-MX\nGreeting,Hello,Hola\n';
+  const items = [{ key: 'Greeting', source: 'Hello', target: 'Hola', note: 'Polite greeting.' }];
+  const file = 'Key,en-US,es-MX,Note\nGreeting,Hello,Hola,Polite greeting.\n';
 
   describe('toCsv method', () => {
     it('should return csv string', () => {

@@ -32,11 +32,7 @@ export async function translationList(options: TranslationListOptions) {
   });
 
   translations.forEach(item => {
-    table.push([
-      item.locale.code,
-      item.resource.key,
-      truncate(item.value)
-    ]);
+    table.push([item.locale.code, item.resource.key, truncate(item.value)]);
   });
 
   console.log(table.toString());

@@ -1,11 +1,24 @@
-import { fromJson, toJson } from './json';
 import { InterchangeItem } from '../interfaces';
+import { fromJson, toJson } from './json';
 
 describe('converts', () => {
   const sourceLocale = 'en-US';
   const targetLocale = 'es-MX';
-  const items1: InterchangeItem[] = [{ key: 'Greeting', source: 'Hello', target: 'Hola' }];
-  const items2: InterchangeItem[] = [{ key: 'Greeting', source: null, target: 'Hola' }];
+  const items1: InterchangeItem[] = [
+    {
+      key: 'Greeting',
+      source: 'Hello',
+      target: 'Hola',
+      note: 'Polite greeting.'
+    }
+  ];
+  const items2: InterchangeItem[] = [
+    {
+      key: 'Greeting',
+      source: null,
+      target: 'Hola'
+    }
+  ];
   const file1 = JSON.stringify(
     {
       sourceLocale,
@@ -15,13 +28,7 @@ describe('converts', () => {
     null,
     2
   );
-  const file2 = JSON.stringify(
-    {
-      Greeting: 'Hola'
-    },
-    null,
-    2
-  );
+  const file2 = JSON.stringify({ Greeting: 'Hola' }, null, 2);
 
   describe('toJson method', () => {
     it('should return json string', () => {

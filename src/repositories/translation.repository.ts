@@ -25,11 +25,7 @@ export class TranslationRepository extends Repository<Translation> {
    */
   findDuplicates(code: string): Promise<Duplicate[]> {
     return this.createQueryBuilder('translation')
-      .select([
-        'translation.value AS value',
-        'COUNT(1) AS occurrences',
-        'GROUP_CONCAT(resource.key) AS keys'
-      ])
+      .select(['translation.value AS value', 'COUNT(1) AS occurrences', 'GROUP_CONCAT(resource.key) AS keys'])
       .innerJoin('translation.resource', 'resource')
       .innerJoin('translation.locale', 'locale')
       .where('locale.code = :code', { code })
@@ -44,7 +40,7 @@ export class TranslationRepository extends Repository<Translation> {
    *
    * @param filters Optional filters.
    */
-  findWhere(filters: { locale: string; key: string; term: string; }) {
+  findWhere(filters: { locale: string; key: string; term: string }) {
     const { locale, key, term } = filters;
 
     const query = this.createQueryBuilder('translation')
@@ -64,9 +60,7 @@ export class TranslationRepository extends Repository<Translation> {
       query.andWhere('translation.value like :term', { term });
     }
 
-    return query
-      .orderBy('locale.code')
-      .getMany();
+    return query.orderBy('locale.code').getMany();
   }
 
   /**
