@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/justinlettau/i18n-db/compare/v1.2.0...v1.3.0) (2020-03-19)
+
+
+### Features
+
+* add notes to export ([86188f7](https://github.com/justinlettau/i18n-db/commit/86188f765a825ee842d0b13345f05da7021d03ff))
+* translation duplicates command ([2f265cb](https://github.com/justinlettau/i18n-db/commit/2f265cb4739fa8787c6c7f2a7f39f235c00a6a51))
+
+
+### Bug Fixes
+
+* resource remove docs ([f5613e9](https://github.com/justinlettau/i18n-db/commit/f5613e98cb88c0c556181dba5cdc5fbe41b1ccfe))
+
 ## [1.2.0](https://github.com/justinlettau/i18n-db/compare/v1.1.0...v1.2.0) (2020-03-12)
 
 
