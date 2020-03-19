@@ -68,3 +68,12 @@ export interface InterchangeItem {
   target: string;
   note?: string;
 }
+
+/**
+ * Translation duplicate.
+ */
+export interface Duplicate {
+  value: string;
+  occurrences: number;
+  keys: string;
+}

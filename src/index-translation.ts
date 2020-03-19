@@ -1,5 +1,6 @@
 import program = require('commander');
 
+import { translationDuplicates } from './commands/translation-duplicates';
 import { translationList } from './commands/translation-list';
 import { translationSet } from './commands/translation-set';
 
@@ -15,6 +16,12 @@ async function bootstrap() {
     .alias('ls')
     .description('List translations.')
     .action(translationList);
+
+  program
+    .command('duplicates')
+    .alias('d')
+    .description('Find duplicate translations.')
+    .action(translationDuplicates);
 
   program
     .command('set [key] [value]')

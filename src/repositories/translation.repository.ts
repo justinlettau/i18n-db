@@ -1,6 +1,7 @@
 import { EntityRepository, Repository } from 'typeorm';
 
 import { Translation } from '../entities/translation.entity';
+import { Duplicate } from '../interfaces';
 
 /**
  * Translation repository.
@@ -17,6 +18,25 @@ export class TranslationRepository extends Repository<Translation> {
       .orderBy('locale.code')
       .addOrderBy('resource.key')
       .getMany();
+  }
+
+  /**
+   * Find duplicates.
+   */
+  findDuplicates(code: string): Promise<Duplicate[]> {
+    return this.createQueryBuilder('translation')
+      .select([
+        'translation.value AS value',
+        'COUNT(1) AS occurrences',
+        'GROUP_CONCAT(resource.key) AS keys'
+      ])
+      .innerJoin('translation.resource', 'resource')
+      .innerJoin('translation.locale', 'locale')
+      .where('locale.code = :code', { code })
+      .groupBy('translation.value')
+      .having('COUNT(1) > 1')
+      .orderBy('COUNT(1)', 'DESC')
+      .getRawMany();
   }
 
   /**

@@ -176,6 +176,15 @@ List translations.
 | `--key`    | `-k`  | `string` | Optional resource key filter by. Wildcard character: `%`   | n/a     |
 | `--locale` | `-l`  | `string` | Optional locale code to filter by.                         | n/a     |
 
+### `translate duplicates`
+
+Aliases:
+
+- `t duplicates`
+- `t d`
+
+Find duplicate translations.
+
 ### `translate set [key] [value]`
 
 Alias: `t set [key] [value]`

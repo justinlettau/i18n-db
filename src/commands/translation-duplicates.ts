@@ -4,38 +4,31 @@ import Table from 'cli-table';
 import { getConfiguration } from '../configuration';
 import { getConnection } from '../connection';
 import { truncate } from '../helpers/truncate';
-import { TranslationListOptions } from '../interfaces';
 import { TranslationRepository } from '../repositories/translation.repository';
 
 /**
- * List translations.
- *
- * @param options CLI options.
+ * Find duplicate translations.
  */
-export async function translationList(options: TranslationListOptions) {
+export async function translationDuplicates() {
   const config = getConfiguration();
   const connection = await getConnection(config);
   const translationRepo = connection.getCustomRepository(TranslationRepository);
-  const translations = await translationRepo.findWhere({
-    locale: options.locale,
-    key: options.key,
-    term: options.term
-  });
+  const duplicates = await translationRepo.findDuplicates(config.defaultLocale);
 
-  if (translations.length === 0) {
-    console.log(chalk.red('No translations found!'));
+  if (duplicates.length === 0) {
+    console.log(chalk.green('No duplicates found!'));
     return;
   }
 
   const table = new Table({
-    head: ['Locale', 'Key', 'value']
+    head: ['#', 'Value', 'Keys']
   });
 
-  translations.forEach(item => {
+  duplicates.forEach(item => {
     table.push([
-      item.locale.code,
-      item.resource.key,
-      truncate(item.value)
+      chalk.yellow(item.occurrences),
+      truncate(item.value),
+      item.keys.split(',').join('\n')
     ]);
   });
 
