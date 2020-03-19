@@ -63,14 +63,20 @@ export async function exportCmd(options: TranslationExportOptions) {
       const source = translations.find(x => x.locale.code === sourceLocale && x.resourceId === item.id);
       const target = translations.find(x => x.locale.code === targetLocale && x.resourceId === item.id);
 
+      if (!source) {
+        console.log(`Skipping "${item.key}", source not found`);
+        return;
+      }
+
       if (target && target.version >= source.version) {
         return;
       }
 
       items.push({
         key: item.key,
-        source: source?.value || '',
-        target: target?.value || ''
+        source: source.value || '',
+        target: target?.value || '',
+        note: item.description || undefined
       });
     });
 

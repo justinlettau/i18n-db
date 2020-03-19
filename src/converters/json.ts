@@ -8,15 +8,11 @@ import { InterchangeItem } from '../interfaces';
  * @param items Interchange items.
  */
 export function toJson(source: string, target: string, items: InterchangeItem[]) {
-  return JSON.stringify(
-    {
-      sourceLocale: source,
-      targetLocale: target,
-      resources: items
-    },
-    null,
-    2
-  );
+  return JSON.stringify({
+    sourceLocale: source,
+    targetLocale: target,
+    resources: items
+  }, null, 2);
 }
 
 /**

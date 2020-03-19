@@ -66,4 +66,5 @@ export interface InterchangeItem {
   key: string;
   source: string;
   target: string;
+  note?: string;
 }

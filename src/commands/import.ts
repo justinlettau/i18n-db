@@ -75,7 +75,7 @@ export async function importCmd(file: string, options: TranslationImportOptions)
     let resource = resources.find(x => x.key === item.key);
 
     if (!resource) {
-      resource = await resourceRepo.save({ key: item.key });
+      resource = await resourceRepo.save({ key: item.key, description: item.note });
       resources.push(resource);
       console.log(`Resource created: "${item.key}"`);
     }
