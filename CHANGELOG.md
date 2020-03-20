@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/justinlettau/i18n-db/compare/v1.3.0...v1.4.0) (2020-03-20)
+
+
+### Features
+
+* resource rename command ([70b99f0](https://github.com/justinlettau/i18n-db/commit/70b99f058e9cf09fa8868e366f238fdbca5287ee))
+* warn for duplicate translations ([e744207](https://github.com/justinlettau/i18n-db/commit/e744207ce151aecff1bae86bc58dfa1ec5e4faaf))
+
 ## [1.3.0](https://github.com/justinlettau/i18n-db/compare/v1.2.0...v1.3.0) (2020-03-19)
 
 

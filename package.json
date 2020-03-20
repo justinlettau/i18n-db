@@ -1,6 +1,6 @@
 {
   "name": "i18n-db",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A lightweight internationalization tool for managing translations, with JSON file output.",
   "keywords": [
     "i18n",
