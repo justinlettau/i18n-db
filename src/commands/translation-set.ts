@@ -1,7 +1,9 @@
 import chalk from 'chalk';
+import * as inquirer from 'inquirer';
 
 import { getConfiguration } from '../configuration';
 import { getConnection } from '../connection';
+import { truncate } from '../helpers/truncate';
 import { TranslationSetOptions } from '../interfaces';
 import { LocaleRepository } from '../repositories/locale.repository';
 import { ResourceRepository } from '../repositories/resource.repository';
@@ -25,6 +27,25 @@ export async function translationSet(key: string, value: string, options: Transl
   if (!locale) {
     console.log(chalk.red(`Locale "${code}" does not exist!`));
     return;
+  }
+
+  const duplicates = await translationRepo.findWhere({ locale: code, term: value });
+
+  if (duplicates.length > 0) {
+    const answers = await inquirer.prompt([
+      {
+        type: 'confirm',
+        name: 'continue',
+        message: `It looks like "${truncate(value)}" already exists (${duplicates
+          .map(x => `"${x.resource.key}"`)
+          .join(', ')}), are you sure you want to continue?"`
+      }
+    ]);
+
+    if (!answers.continue) {
+      console.log('Cancelled, nothing was set.');
+      return;
+    }
   }
 
   let resource = await resourceRepo.findByKey(key);

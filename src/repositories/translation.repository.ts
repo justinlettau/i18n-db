@@ -40,7 +40,7 @@ export class TranslationRepository extends Repository<Translation> {
    *
    * @param filters Optional filters.
    */
-  findWhere(filters: { locale: string; key: string; term: string }) {
+  findWhere(filters: { locale?: string; key?: string; term?: string }) {
     const { locale, key, term } = filters;
 
     const query = this.createQueryBuilder('translation')
