@@ -2,6 +2,7 @@ import program = require('commander');
 
 import { resourceList } from './commands/resource-list';
 import { resourceRemove } from './commands/resource-remove';
+import { resourceRename } from './commands/resource-rename';
 
 // init
 bootstrap();
@@ -12,6 +13,12 @@ async function bootstrap() {
     .alias('ls')
     .description('List all resources.')
     .action(resourceList);
+
+  program
+    .command('rename [oldKey] [newKey')
+    .alias('ren')
+    .description('Rename a resource key.')
+    .action(resourceRename);
 
   program
     .command('remove [key]')

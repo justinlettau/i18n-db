@@ -152,6 +152,15 @@ Aliases:
 
 List all resources.
 
+### `resource rename [oldKey] [newKey]`
+
+Aliases:
+
+- `r rename [oldKey] [newKey]`
+- `r ren [oldKey] [newKey]`
+
+Rename a resource key.
+
 ### `resource remove [key]`
 
 Aliases:
