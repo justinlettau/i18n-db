@@ -87,7 +87,8 @@ export async function importCmd(file: string, options: TranslationImportOptions)
 
     const translation = translations.find(x => x.resource.key === item.key);
 
-    if (!translation || translation.value !== item.target) {
+    if (!translation) {
+      // even if value has not changed, update to bump version
       await translationRepo.save({
         id: translation?.id,
         value: item.target,
