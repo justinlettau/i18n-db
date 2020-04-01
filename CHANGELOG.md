@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/justinlettau/i18n-db/compare/v1.5.1...v1.5.2) (2020-04-01)
+
+
+### Bug Fixes
+
+* import insert translations ([b82d886](https://github.com/justinlettau/i18n-db/commit/b82d886cebee6740f53c88ad35c697c1485a8530))
+
 ### [1.5.1](https://github.com/justinlettau/i18n-db/compare/v1.5.0...v1.5.1) (2020-04-01)
 
 
