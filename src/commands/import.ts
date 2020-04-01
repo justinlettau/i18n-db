@@ -87,18 +87,28 @@ export async function importCmd(file: string, options: TranslationImportOptions)
 
     const translation = translations.find(x => x.resource.key === item.key);
 
-    if (!translation || translation.value !== item.target || options.bump) {
-      await translationRepo.save({
-        id: translation?.id,
+    if (!translation) {
+      // create
+      translationRepo.create({
         value: item.target,
         resourceId: resource.id,
         localeId: locale.id
       });
 
       count++;
+      console.log(`Translation created (${targetLocale}): "${item.key}"`);
+    } else if (translation.value !== item.target || options.bump) {
+      // update
+      translationRepo.update(translation.id, {
+        value: item.target,
+        resourceId: resource.id,
+        localeId: locale.id
+      });
 
-      const msg = translation ? 'Translation updated' : 'Translation created';
-      console.log(`${msg} (${targetLocale}): "${item.key}"`);
+      count++;
+      console.log(`Translation updated (${targetLocale}): "${item.key}"`);
+    } else {
+      console.log(`Skipping translation "${item.key}", no change`);
     }
   }
 
