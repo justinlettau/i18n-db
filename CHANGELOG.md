@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/justinlettau/i18n-db/compare/v1.5.0...v1.5.1) (2020-04-01)
+
+
+### Bug Fixes
+
+* import `bump` version number ([5bb5888](https://github.com/justinlettau/i18n-db/commit/5bb588883d4ccc81341d6d388de5e0bd02648769))
+
 ## [1.5.0](https://github.com/justinlettau/i18n-db/compare/v1.4.1...v1.5.0) (2020-04-01)
 
 
