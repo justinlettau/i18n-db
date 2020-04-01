@@ -89,7 +89,7 @@ export async function importCmd(file: string, options: TranslationImportOptions)
 
     if (!translation) {
       // create
-      translationRepo.create({
+      await translationRepo.insert({
         value: item.target,
         resourceId: resource.id,
         localeId: locale.id
@@ -99,7 +99,7 @@ export async function importCmd(file: string, options: TranslationImportOptions)
       console.log(`Translation created (${targetLocale}): "${item.key}"`);
     } else if (translation.value !== item.target || options.bump) {
       // update
-      translationRepo.update(translation.id, {
+      await translationRepo.update(translation.id, {
         value: item.target,
         resourceId: resource.id,
         localeId: locale.id
