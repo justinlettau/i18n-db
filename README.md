@@ -67,10 +67,11 @@ Import translation records.
 
 Options:
 
-| Option     | Alias | Type     | Description                                    | Default         |
-| ---------- | ----- | -------- | ---------------------------------------------- | --------------- |
-| `--format` | `-f`  | `string` | File format. Available: `xliff`, `csv`, `json` | `xliff`         |
-| `--locale` | `-l`  | `string` | Locale code to import translations for.        | `defaultLocale` |
+| Option     | Alias | Type      | Description                                                                   | Default         |
+| ---------- | ----- | --------- | ----------------------------------------------------------------------------- | --------------- |
+| `--format` | `-f`  | `string`  | File format. Available: `xliff`, `csv`, `json`                                | `xliff`         |
+| `--locale` | `-l`  | `string`  | Locale code to import translations for.                                       | `defaultLocale` |
+| `--bump`   | `-b`  | `boolean` | Save translations (bumping version number) even if the value has not changed. | `false`         |
 
 ### `export`
 

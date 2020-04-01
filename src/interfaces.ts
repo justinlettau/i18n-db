@@ -44,6 +44,7 @@ export interface TranslationSetOptions {
 export interface TranslationImportOptions {
   format?: FileType;
   locale?: string;
+  bump?: boolean;
 }
 
 /**

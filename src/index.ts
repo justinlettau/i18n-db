@@ -23,6 +23,7 @@ async function bootstrap() {
     .command('import [file]')
     .option('-f, --format [value]', 'File format. Available: `xliff`, `csv`, `json`. Default: `xliff`')
     .option('-l, --locale [code]', 'Locale code to import translations for. Default: `defaultLocale`')
+    .option('-b, --bump', 'Save translations (bumping version number) even if the value has not changed. Default: `false`')
     .description('Import translation records.')
     .action(importCmd);
 
