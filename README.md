@@ -43,7 +43,7 @@ npm install -g i18n-db
 # Usage
 
 ```bash
-i18n-db --help
+i18n --help
 ```
 
 ### `init`
