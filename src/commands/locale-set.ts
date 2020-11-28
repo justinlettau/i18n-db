@@ -20,7 +20,7 @@ export async function localeSet(code: string, options: LocaleSetOptions) {
   await localeRepo.save({
     id: locale?.id,
     code,
-    name: options.fullName
+    name: options.fullName,
   });
 
   const msg = locale ? 'Locale updated' : 'Locale added';

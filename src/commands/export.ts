@@ -54,14 +54,21 @@ export async function exportCmd(options: TranslationExportOptions) {
       continue;
     }
 
-    const translations = await translationRepo.findByLocale([sourceLocale, targetLocale]);
+    const translations = await translationRepo.findByLocale([
+      sourceLocale,
+      targetLocale,
+    ]);
     const items: InterchangeItem[] = [];
     let content: string;
     let extension: string;
 
-    resources.forEach(item => {
-      const source = translations.find(x => x.locale.code === sourceLocale && x.resourceId === item.id);
-      const target = translations.find(x => x.locale.code === targetLocale && x.resourceId === item.id);
+    resources.forEach((item) => {
+      const source = translations.find(
+        (x) => x.locale.code === sourceLocale && x.resourceId === item.id
+      );
+      const target = translations.find(
+        (x) => x.locale.code === targetLocale && x.resourceId === item.id
+      );
 
       if (!source) {
         console.log(`Skipping "${item.key}", source not found`);
@@ -76,7 +83,7 @@ export async function exportCmd(options: TranslationExportOptions) {
         key: item.key,
         source: source.value || '',
         target: target?.value || '',
-        note: item.description || undefined
+        note: item.description || undefined,
       });
     });
 

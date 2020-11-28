@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  VersionColumn
+  VersionColumn,
 } from 'typeorm';
 
 import { Locale } from './locale.entity';
@@ -45,19 +45,13 @@ export class Translation {
   /**
    * Associated resource.
    */
-  @ManyToOne(
-    type => Resource,
-    resource => resource.translations
-  )
+  @ManyToOne((type) => Resource, (resource) => resource.translations)
   resource: Resource;
 
   /**
    * Associated locale.
    */
-  @ManyToOne(
-    type => Locale,
-    locale => locale.translations
-  )
+  @ManyToOne((type) => Locale, (locale) => locale.translations)
   locale: Locale;
 
   /**

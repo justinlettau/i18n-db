@@ -7,12 +7,16 @@ import { InterchangeItem } from '../interfaces';
  * @param target Target locale code.
  * @param items Interchange items.
  */
-export function toJson(source: string, target: string, items: InterchangeItem[]) {
+export function toJson(
+  source: string,
+  target: string,
+  items: InterchangeItem[]
+) {
   return JSON.stringify(
     {
       sourceLocale: source,
       targetLocale: target,
-      resources: items
+      resources: items,
     },
     null,
     2
@@ -26,16 +30,20 @@ export function toJson(source: string, target: string, items: InterchangeItem[])
  * @param target Target locale code.
  * @param items Raw json file content.
  */
-export function fromJson(source: string, target: string, content: string): InterchangeItem[] {
+export function fromJson(
+  source: string,
+  target: string,
+  content: string
+): InterchangeItem[] {
   const obj = JSON.parse(content);
   const resources: InterchangeItem[] = obj.resources;
 
   if (!resources) {
     // file from generate
-    return Object.keys(obj).map(key => ({
+    return Object.keys(obj).map((key) => ({
       key,
       source: null,
-      target: obj[key]
+      target: obj[key],
     }));
   }
 

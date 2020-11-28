@@ -15,15 +15,30 @@ async function bootstrap() {
   program
     .command('init')
     .description('Setup configuration and initialize database.')
-    .option('-l, --defaultLocale [code]', 'Default locale to set. Default: `en-US`')
-    .option('-d, --directory [path]', 'Directory to store database and generated files. Default: `./i18n`')
+    .option(
+      '-l, --defaultLocale [code]',
+      'Default locale to set. Default: `en-US`'
+    )
+    .option(
+      '-d, --directory [path]',
+      'Directory to store database and generated files. Default: `./i18n`'
+    )
     .action(init);
 
   program
     .command('import [file]')
-    .option('-f, --format [value]', 'File format. Available: `xliff`, `csv`, `json`. Default: `xliff`')
-    .option('-l, --locale [code]', 'Locale code to import translations for. Default: `defaultLocale`')
-    .option('-b, --bump', 'Save translations (bumping version number) even if the value has not changed. Default: `false`')
+    .option(
+      '-f, --format [value]',
+      'File format. Available: `xliff`, `csv`, `json`. Default: `xliff`'
+    )
+    .option(
+      '-l, --locale [code]',
+      'Locale code to import translations for. Default: `defaultLocale`'
+    )
+    .option(
+      '-b, --bump',
+      'Save translations (bumping version number) even if the value has not changed. Default: `false`'
+    )
     .description('Import translation records.')
     .action(importCmd);
 
@@ -36,8 +51,14 @@ async function bootstrap() {
   program
     .command('export')
     .alias('x')
-    .option('-f, --format [value]', 'Output file format. Available: `xliff`, `csv`, `json`. Default: `xliff`')
-    .option('-l, --locale [code]', 'Locale code to export translations for. Default: all locales')
+    .option(
+      '-f, --format [value]',
+      'Output file format. Available: `xliff`, `csv`, `json`. Default: `xliff`'
+    )
+    .option(
+      '-l, --locale [code]',
+      'Locale code to export translations for. Default: all locales'
+    )
     .description('Export translations for translation.')
     .action(exportCmd);
 

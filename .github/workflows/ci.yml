@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Install
         run: npm ci
@@ -19,6 +19,9 @@ jobs:
         run: npm run test
         env:
           CI: true
+
+      - name: Coverage
+        uses: codecov/codecov-action@v1
 
       - name: Build
         run: npm run build

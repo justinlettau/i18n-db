@@ -1,4 +1,12 @@
-import { Column, CreateDateColumn, Entity, Index, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 import { Translation } from './translation.entity';
 
@@ -29,10 +37,7 @@ export class Locale {
   /**
    * Associated translations.
    */
-  @OneToMany(
-    type => Translation,
-    trans => trans.locale
-  )
+  @OneToMany((type) => Translation, (trans) => trans.locale)
   translations: Translation[];
 
   /**

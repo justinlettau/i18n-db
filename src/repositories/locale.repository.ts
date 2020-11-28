@@ -11,9 +11,7 @@ export class LocaleRepository extends Repository<Locale> {
    * Find all.
    */
   findAll() {
-    return this.createQueryBuilder()
-      .orderBy('code')
-      .getMany();
+    return this.createQueryBuilder().orderBy('code').getMany();
   }
 
   /**
@@ -22,9 +20,7 @@ export class LocaleRepository extends Repository<Locale> {
    * @param code Locale code.
    */
   findByCode(code: string) {
-    return this.createQueryBuilder()
-      .where('code = :code', { code })
-      .getOne();
+    return this.createQueryBuilder().where('code = :code', { code }).getOne();
   }
 
   /**

@@ -10,8 +10,14 @@ bootstrap();
 async function bootstrap() {
   program
     .command('list')
-    .option('-t, --term [value]', 'Optional search term to filter by. Wildcard character: `%`')
-    .option('-k, --key [value]', 'Optional resource key filter by. Wildcard character: `%`')
+    .option(
+      '-t, --term [value]',
+      'Optional search term to filter by. Wildcard character: `%`'
+    )
+    .option(
+      '-k, --key [value]',
+      'Optional resource key filter by. Wildcard character: `%`'
+    )
     .option('-l, --locale [code]', 'Optional locale code to filter by.')
     .alias('ls')
     .description('List translations.')
@@ -26,7 +32,10 @@ async function bootstrap() {
   program
     .command('set [key] [value]')
     .option('-d, --desc [value]', 'Resource description.')
-    .option('-l, --locale [code]', 'Translation locale code. Default: `defaultLocale`')
+    .option(
+      '-l, --locale [code]',
+      'Translation locale code. Default: `defaultLocale`'
+    )
     .description('Add/update a translation record.')
     .action(translationSet);
 

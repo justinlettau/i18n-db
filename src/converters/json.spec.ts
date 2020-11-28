@@ -9,21 +9,21 @@ describe('converts', () => {
       key: 'Greeting',
       source: 'Hello',
       target: 'Hola',
-      note: 'Polite greeting.'
-    }
+      note: 'Polite greeting.',
+    },
   ];
   const items2: InterchangeItem[] = [
     {
       key: 'Greeting',
       source: null,
-      target: 'Hola'
-    }
+      target: 'Hola',
+    },
   ];
   const file1 = JSON.stringify(
     {
       sourceLocale,
       targetLocale,
-      resources: items1
+      resources: items1,
     },
     null,
     2

@@ -19,7 +19,10 @@ import { TranslationRepository } from '../repositories/translation.repository';
  * @param file File path and name.
  * @param options CLI arguments.
  */
-export async function importCmd(file: string, options: TranslationImportOptions) {
+export async function importCmd(
+  file: string,
+  options: TranslationImportOptions
+) {
   const config = getConfiguration();
   const connection = await getConnection(config);
   const localeRepo = connection.getCustomRepository(LocaleRepository);
@@ -38,19 +41,19 @@ export async function importCmd(file: string, options: TranslationImportOptions)
         type: 'list',
         name: 'code',
         message: 'Please select a locale to import for.',
-        choices: locales.map(item => {
+        choices: locales.map((item) => {
           const suffix = item.code === config.defaultLocale ? ' (default)' : '';
 
           return {
             name: item.code + suffix,
-            value: item.code
+            value: item.code,
           };
-        })
-      }
+        }),
+      },
     ]);
 
     targetLocale = answers.code;
-    locale = locales.find(item => item.code === targetLocale);
+    locale = locales.find((item) => item.code === targetLocale);
   }
 
   const resources = await resourceRepo.findAll();
@@ -72,10 +75,13 @@ export async function importCmd(file: string, options: TranslationImportOptions)
   }
 
   for (const item of items) {
-    let resource = resources.find(x => x.key === item.key);
+    let resource = resources.find((x) => x.key === item.key);
 
     if (!resource) {
-      resource = await resourceRepo.save({ key: item.key, description: item.note });
+      resource = await resourceRepo.save({
+        key: item.key,
+        description: item.note,
+      });
       resources.push(resource);
       console.log(`Resource created: "${item.key}"`);
     }
@@ -85,14 +91,14 @@ export async function importCmd(file: string, options: TranslationImportOptions)
       continue;
     }
 
-    const translation = translations.find(x => x.resource.key === item.key);
+    const translation = translations.find((x) => x.resource.key === item.key);
 
     if (!translation) {
       // create
       await translationRepo.insert({
         value: item.target,
         resourceId: resource.id,
-        localeId: locale.id
+        localeId: locale.id,
       });
 
       count++;
@@ -102,7 +108,7 @@ export async function importCmd(file: string, options: TranslationImportOptions)
       await translationRepo.update(translation.id, {
         value: item.target,
         resourceId: resource.id,
-        localeId: locale.id
+        localeId: locale.id,
       });
 
       count++;

@@ -13,7 +13,10 @@ import { Configuration } from './interfaces';
  * @param config Configuration object.
  * @param synchronize True to synchronize database with entities.
  */
-export async function getConnection(config: Configuration, synchronize = false) {
+export async function getConnection(
+  config: Configuration,
+  synchronize = false
+) {
   const cwd = process.cwd();
   const file = path.join(cwd, config.directory, DATABASE_FILENAME);
 
@@ -21,6 +24,6 @@ export async function getConnection(config: Configuration, synchronize = false) 
     type: 'sqlite',
     database: file,
     synchronize,
-    entities: [Locale, Translation, Resource]
+    entities: [Locale, Translation, Resource],
   });
 }

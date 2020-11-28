@@ -26,8 +26,8 @@ export async function localeRemove(code: string) {
     {
       type: 'confirm',
       name: 'continue',
-      message: `Are you sure you want to remove "${code}" and all associated translations?`
-    }
+      message: `Are you sure you want to remove "${code}" and all associated translations?`,
+    },
   ]);
 
   if (!answers.continue) {

@@ -10,8 +10,15 @@ import { InterchangeItem } from '../interfaces';
  * @param target Target locale code.
  * @param items Interchange items.
  */
-export function toCsv(source: string, target: string, items: InterchangeItem[]) {
-  return stringify([['Key', source, target, 'Note'], ...items.map(x => [x.key, x.source, x.target, x.note])]);
+export function toCsv(
+  source: string,
+  target: string,
+  items: InterchangeItem[]
+) {
+  return stringify([
+    ['Key', source, target, 'Note'],
+    ...items.map((x) => [x.key, x.source, x.target, x.note]),
+  ]);
 }
 
 /**
@@ -30,12 +37,12 @@ export function fromCsv(source: string, target: string, content: string) {
     rows.shift();
   }
 
-  return rows.map(row => {
+  return rows.map((row) => {
     const item: InterchangeItem = {
       key: row[0],
       source: row[1],
       target: row[2],
-      note: row[3]
+      note: row[3],
     };
 
     return item;

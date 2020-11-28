@@ -26,8 +26,8 @@ export async function resourceRename(oldKey: string, newKey: string) {
     {
       type: 'confirm',
       name: 'continue',
-      message: `Are you sure you want to rename "${oldKey}" to "${newKey}"?`
-    }
+      message: `Are you sure you want to rename "${oldKey}" to "${newKey}"?`,
+    },
   ]);
 
   if (!answers.continue) {

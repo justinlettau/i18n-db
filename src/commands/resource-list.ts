@@ -20,10 +20,10 @@ export async function resourceList() {
   }
 
   const table = new Table({
-    head: ['Key', 'Name']
+    head: ['Key', 'Name'],
   });
 
-  resources.forEach(item => {
+  resources.forEach((item) => {
     table.push([item.key, item.description || 'n/a']);
   });
 

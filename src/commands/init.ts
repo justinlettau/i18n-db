@@ -17,7 +17,7 @@ export async function init(options: InitOptions) {
   const configFile = path.join(cwd, CONFIG_FILENAME);
   let config: Configuration = {
     defaultLocale: options.defaultLocale || 'en-US',
-    directory: options.directory || './i18n'
+    directory: options.directory || './i18n',
   };
 
   if (fs.existsSync(configFile)) {
@@ -36,7 +36,9 @@ export async function init(options: InitOptions) {
     const connection = await getConnection(config, true);
     console.log('Database created');
 
-    await connection.getCustomRepository(LocaleRepository).save({ code: config.defaultLocale });
+    await connection
+      .getCustomRepository(LocaleRepository)
+      .save({ code: config.defaultLocale });
     console.log(`Locale created: "${config.defaultLocale}"`);
   }
 

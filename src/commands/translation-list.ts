@@ -19,7 +19,7 @@ export async function translationList(options: TranslationListOptions) {
   const translations = await translationRepo.findWhere({
     locale: options.locale,
     key: options.key,
-    term: options.term
+    term: options.term,
   });
 
   if (translations.length === 0) {
@@ -28,10 +28,10 @@ export async function translationList(options: TranslationListOptions) {
   }
 
   const table = new Table({
-    head: ['Locale', 'Key', 'value']
+    head: ['Locale', 'Key', 'value'],
   });
 
-  translations.forEach(item => {
+  translations.forEach((item) => {
     table.push([item.locale.code, item.resource.key, truncate(item.value)]);
   });
 

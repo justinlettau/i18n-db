@@ -20,10 +20,10 @@ export async function localeList() {
   }
 
   const table = new Table({
-    head: ['Code', 'Name']
+    head: ['Code', 'Name'],
   });
 
-  locales.forEach(item => {
+  locales.forEach((item) => {
     table.push([item.code, item.name || 'n/a']);
   });
 

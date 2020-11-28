@@ -11,9 +11,7 @@ export class ResourceRepository extends Repository<Resource> {
    * Find all.
    */
   findAll() {
-    return this.createQueryBuilder()
-      .orderBy('key')
-      .getMany();
+    return this.createQueryBuilder().orderBy('key').getMany();
   }
 
   /**
@@ -22,9 +20,7 @@ export class ResourceRepository extends Repository<Resource> {
    * @param key Resource key.
    */
   findByKey(key: string) {
-    return this.createQueryBuilder()
-      .where('key = :key', { key })
-      .getOne();
+    return this.createQueryBuilder().where('key = :key', { key }).getOne();
   }
 
   /**

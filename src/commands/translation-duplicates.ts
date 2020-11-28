@@ -21,11 +21,15 @@ export async function translationDuplicates() {
   }
 
   const table = new Table({
-    head: ['#', 'Value', 'Keys']
+    head: ['#', 'Value', 'Keys'],
   });
 
-  duplicates.forEach(item => {
-    table.push([chalk.yellow(item.occurrences), truncate(item.value), item.keys.split(',').join('\n')]);
+  duplicates.forEach((item) => {
+    table.push([
+      chalk.yellow(item.occurrences),
+      truncate(item.value),
+      item.keys.split(',').join('\n'),
+    ]);
   });
 
   console.log(table.toString());

@@ -10,13 +10,19 @@ import { InterchangeItem } from '../interfaces';
  * @param target Target locale code.
  * @param items Interchange items.
  */
-export function toXliff(source: string, target: string, items: InterchangeItem[]) {
-  const result: { [key: string]: { source: string; target: string; note?: string } } = {};
+export function toXliff(
+  source: string,
+  target: string,
+  items: InterchangeItem[]
+) {
+  const result: {
+    [key: string]: { source: string; target: string; note?: string };
+  } = {};
 
-  items.forEach(item => {
+  items.forEach((item) => {
     result[item.key] = {
       source: item.source,
-      target: item.target
+      target: item.target,
     };
 
     if (item.note) {
@@ -29,8 +35,8 @@ export function toXliff(source: string, target: string, items: InterchangeItem[]
       sourceLanguage: source,
       targetLanguage: target,
       resources: {
-        f1: result
-      }
+        f1: result,
+      },
     },
     {}
   );
@@ -51,13 +57,13 @@ export function fromXliff(source: string, target: string, content: string) {
     return [];
   }
 
-  return Object.keys(things).map(key => {
+  return Object.keys(things).map((key) => {
     const value = things[key];
     const item: InterchangeItem = {
       key,
       source: value.source,
       target: value.target,
-      note: value.note
+      note: value.note,
     };
 
     return item;

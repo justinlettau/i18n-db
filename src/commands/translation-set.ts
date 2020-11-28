@@ -15,7 +15,11 @@ import { TranslationRepository } from '../repositories/translation.repository';
  * @param key Resource key.
  * @param options CLI options.
  */
-export async function translationSet(key: string, value: string, options: TranslationSetOptions) {
+export async function translationSet(
+  key: string,
+  value: string,
+  options: TranslationSetOptions
+) {
   const config = getConfiguration();
   const connection = await getConnection(config);
   const localeRepo = connection.getCustomRepository(LocaleRepository);
@@ -29,17 +33,22 @@ export async function translationSet(key: string, value: string, options: Transl
     return;
   }
 
-  const duplicates = await translationRepo.findWhere({ locale: code, term: value });
+  const duplicates = await translationRepo.findWhere({
+    locale: code,
+    term: value,
+  });
 
   if (duplicates.length > 0) {
     const answers = await inquirer.prompt([
       {
         type: 'confirm',
         name: 'continue',
-        message: `It looks like "${truncate(value)}" already exists (${duplicates
-          .map(x => `"${x.resource.key}"`)
-          .join(', ')}), are you sure you want to continue?"`
-      }
+        message: `It looks like "${truncate(
+          value
+        )}" already exists (${duplicates
+          .map((x) => `"${x.resource.key}"`)
+          .join(', ')}), are you sure you want to continue?"`,
+      },
     ]);
 
     if (!answers.continue) {
@@ -56,7 +65,7 @@ export async function translationSet(key: string, value: string, options: Transl
     resource = await resourceRepo.save({
       id: resource?.id,
       key,
-      description: options.desc
+      description: options.desc,
     });
 
     console.log(`${existed ? 'Resource updated' : 'Resource added'}: "${key}"`);
@@ -68,7 +77,7 @@ export async function translationSet(key: string, value: string, options: Transl
     id: existing?.id,
     value,
     localeId: locale.id,
-    resourceId: resource.id
+    resourceId: resource.id,
   });
 
   const msg = existing ? 'Translation updated' : 'Translation added';

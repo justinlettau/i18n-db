@@ -31,11 +31,14 @@ export async function generate() {
 
   for (const locale of locales) {
     const code = locale.code;
-    const items = translations.filter(x => x.locale.code === code);
+    const items = translations.filter((x) => x.locale.code === code);
 
     const file = `${code}.json`;
     const dir = path.join(cwd, config.directory, file);
-    const content = items.reduce((obj, item) => ({ ...obj, [item.resource.key]: item.value }), {});
+    const content = items.reduce(
+      (obj, item) => ({ ...obj, [item.resource.key]: item.value }),
+      {}
+    );
     const index = paths.indexOf(dir.replace(/\\/g, '/'));
 
     fs.writeJsonSync(dir, content, { spaces: 2 });
@@ -49,7 +52,7 @@ export async function generate() {
   }
 
   // remove any files from deleted locales
-  paths.forEach(item => {
+  paths.forEach((item) => {
     const file = item.split('/').pop();
     fs.removeSync(item);
     console.log(`File removed: "${file}"`);

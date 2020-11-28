@@ -10,8 +10,8 @@ describe('converts', () => {
       key: 'Greeting',
       source: 'Hello',
       target: 'Hola',
-      note: 'Polite greeting.'
-    }
+      note: 'Polite greeting.',
+    },
   ];
   const file = `<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en-US" trgLang="es-MX">
   <file id="f1">
