@@ -55,7 +55,7 @@
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
     "inquirer": "^7.3.3",
-    "sqlite3": "^4.2.0",
+    "sqlite3": "^5.0.0",
     "typeorm": "^0.2.29",
     "update-notifier": "^4.1.3",
     "xliff": "^4.4.0"
