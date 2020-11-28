@@ -47,7 +47,7 @@
     }
   },
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "cli-table": "^0.3.1",
     "commander": "^5.1.0",
     "csv-parse": "^4.14.1",
