@@ -12,13 +12,6 @@ describe('converts', () => {
       note: 'Polite greeting.',
     },
   ];
-  const items2: InterchangeItem[] = [
-    {
-      key: 'Greeting',
-      source: null,
-      target: 'Hola',
-    },
-  ];
   const file1 = JSON.stringify(
     {
       sourceLocale,
@@ -28,7 +21,6 @@ describe('converts', () => {
     null,
     2
   );
-  const file2 = JSON.stringify({ Greeting: 'Hola' }, null, 2);
 
   describe('toJson method', () => {
     it('should return json string', () => {
@@ -46,9 +38,36 @@ describe('converts', () => {
     });
 
     it('should return interchange items (generated file)', () => {
-      const result = fromJson(sourceLocale, targetLocale, file2);
+      const content = JSON.stringify({
+        Greeting: 'Hola',
+        Nested: {
+          Level1: 'Nivel 1',
+          Down: {
+            Deep: {
+              Level3: 'Nivel 3'
+            }
+          }
+        }
+      }, null, 2);
+      const result = fromJson(sourceLocale, targetLocale, content);
 
-      expect(result).toEqual(items2);
+      expect(result).toEqual([
+        {
+          key: 'Greeting',
+          source: null,
+          target: 'Hola',
+        },
+        {
+          key: 'Nested.Level1',
+          source: null,
+          target: 'Nivel 1',
+        },
+        {
+          key: 'Nested.Down.Deep.Level3',
+          source: null,
+          target: 'Nivel 3',
+        }
+      ]);
     });
   });
 });

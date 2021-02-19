@@ -70,7 +70,7 @@ export async function importCmd(
       items = fromJson(sourceLocale, targetLocale, content);
       break;
     default:
-      items = fromXliff(sourceLocale, targetLocale, content);
+      items = await fromXliff(sourceLocale, targetLocale, content);
       break;
   }
 

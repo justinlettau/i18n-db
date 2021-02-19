@@ -110,6 +110,9 @@ Example output file content:
 {
   "key": "translation value",
   "Greeting": "Hello World!",
+  "Common": {
+    "Yes": "Yes"
+  },
   ...
 }
 ```
@@ -212,10 +215,11 @@ Options:
 
 Configuration options are stored in a `i18n.json` file. The following properties are supported:
 
-| Name            | Type     | Description                                                        |
-| --------------- | -------- | ------------------------------------------------------------------ |
-| `defaultLocale` | `string` | Default locale.                                                    |
-| `directory`     | `string` | Directory to store database and generated files, relative to root. |
+| Name            | Type      | Description                                                        |
+| --------------- | --------- | ------------------------------------------------------------------ |
+| `defaultLocale` | `string`  | Default locale.                                                    |
+| `directory`     | `string`  | Directory to store database and generated files, relative to root. |
+| `nested`        | `boolean` | Determines if nested JSON should be generated.                     |
 
 # Examples
 

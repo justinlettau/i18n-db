@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as glob from 'glob';
+import * as dot from 'ts-dot-prop';
 
 import { getConfiguration } from '../configuration';
 import { getConnection } from '../connection';
@@ -35,10 +36,15 @@ export async function generate() {
 
     const file = `${code}.json`;
     const dir = path.join(cwd, config.directory, file);
-    const content = items.reduce(
-      (obj, item) => ({ ...obj, [item.resource.key]: item.value }),
-      {}
-    );
+    const content = items.reduce((obj, item) => {
+      if (config.nested) {
+        dot.set(obj, item.resource.key, item.value);
+      } else {
+        obj[item.resource.key] = item.value;
+      }
+
+      return obj;
+    }, {} as Record<string, any>);
     const index = paths.indexOf(dir.replace(/\\/g, '/'));
 
     fs.writeJsonSync(dir, content, { spaces: 2 });

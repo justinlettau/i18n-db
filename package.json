@@ -56,6 +56,8 @@
     "glob": "^7.1.6",
     "inquirer": "^7.3.3",
     "sqlite3": "^5.0.2",
+    "ts-dot-prop": "^1.4.2",
+    "ts-util-is": "^1.2.1",
     "typeorm": "^0.2.31",
     "update-notifier": "^5.1.0",
     "xliff": "^5.3.1"

@@ -4,6 +4,7 @@
 export interface Configuration {
   defaultLocale: string;
   directory: string;
+  nested?: boolean;
 }
 
 /**
