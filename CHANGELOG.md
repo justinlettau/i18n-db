@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/justinlettau/i18n-db/compare/v1.5.3...v1.6.0) (2021-02-19)
+
+
+### Features
+
+* nested json output ([bd2fe74](https://github.com/justinlettau/i18n-db/commit/bd2fe74a10ab861eb085170776fa9ad65dec499c))
+
 ### [1.5.3](https://github.com/justinlettau/i18n-db/compare/v1.5.2...v1.5.3) (2020-11-28)
 
 ### [1.5.2](https://github.com/justinlettau/i18n-db/compare/v1.5.1...v1.5.2) (2020-04-01)
