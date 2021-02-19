@@ -3,5 +3,5 @@ declare module '*.json' {
   export default value;
 }
 
-declare module 'xliff/js2xliff';
-declare module 'xliff/xliff2js';
+declare module 'xliff/cjs/js2xliff';
+declare module 'xliff/cjs/xliff2js';

@@ -26,16 +26,16 @@ describe('converts', () => {
 </xliff>`;
 
   describe('toXliff method', () => {
-    it('should return xliff string', () => {
-      const result = toXliff(sourceLocale, targetLocale, items);
+    it('should return xliff string', async () => {
+      const result = await toXliff(sourceLocale, targetLocale, items);
 
       expect(result).toBe(file);
     });
   });
 
   describe('fromXliff method', () => {
-    it('should return interchange items', () => {
-      const result = fromXliff(sourceLocale, targetLocale, file);
+    it('should return interchange items', async () => {
+      const result = await fromXliff(sourceLocale, targetLocale, file);
 
       expect(result).toEqual(items);
     });

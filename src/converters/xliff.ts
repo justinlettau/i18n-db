@@ -1,5 +1,5 @@
-import js2xliff from 'xliff/js2xliff';
-import xliff2js from 'xliff/xliff2js';
+import js2xliff from 'xliff/cjs/js2xliff';
+import xliff2js from 'xliff/cjs/xliff2js';
 
 import { InterchangeItem } from '../interfaces';
 
@@ -39,7 +39,7 @@ export function toXliff(
       },
     },
     {}
-  );
+  ) as Promise<string>;
 }
 
 /**
@@ -49,8 +49,8 @@ export function toXliff(
  * @param target Target locale code.
  * @param items Raw xliff file content.
  */
-export function fromXliff(source: string, target: string, content: string) {
-  const result = xliff2js(content);
+export async function fromXliff(source: string, target: string, content: string) {
+  const result = await xliff2js(content);
   const things = result?.resources?.f1;
 
   if (!things) {

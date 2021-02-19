@@ -103,7 +103,7 @@ export async function exportCmd(options: TranslationExportOptions) {
         break;
       default:
         extension = 'xliff';
-        content = toXliff(sourceLocale, targetLocale, items);
+        content = await toXliff(sourceLocale, targetLocale, items);
         break;
     }
 
