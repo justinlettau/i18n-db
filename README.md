@@ -56,10 +56,11 @@ i18n init
 
 Options:
 
-| Option            | Alias | Type     | Description                                                         | Default  |
-| ----------------- | ----- | -------- | ------------------------------------------------------------------- | -------- |
-| `--defaultLocale` | `-l`  | `string` | Default locale to set.                                              | `en-US`  |
-| `--directory`     | `-d`  | `string` | Directory to store database and generated files, relative to root.. | `./i18n` |
+| Option            | Alias | Type     | Description                                           | Default  |
+| ----------------- | ----- | -------- | ----------------------------------------------------- | -------- |
+| `--defaultLocale` | `-l`  | `string` | Default locale to set.                                | `en-US`  |
+| `--directory`     | `-d`  | `string` | Directory to store database file, relative to root.   | `./i18n` |
+| `--output`        | `-o`  | `string` | Directory to store generated files, relative to root. | `./i18n` |
 
 ### `import [file]`
 
@@ -215,11 +216,42 @@ Options:
 
 Configuration options are stored in a `i18n.json` file. The following properties are supported:
 
-| Name            | Type      | Description                                                        |
-| --------------- | --------- | ------------------------------------------------------------------ |
-| `defaultLocale` | `string`  | Default locale.                                                    |
-| `directory`     | `string`  | Directory to store database and generated files, relative to root. |
-| `nested`        | `boolean` | Determines if nested JSON should be generated.                     |
+| Name            | Type                   | Description                                           |
+| --------------- | ---------------------- | ----------------------------------------------------- |
+| `defaultLocale` | `string`               | Default locale.                                       |
+| `directory`     | `string`               | Directory to store database file, relative to root.   |
+| `output`        | `string` or `object[]` | Directory to store generated files, relative to root. |
+| `nested`        | `boolean`              | Determines if nested JSON should be generated.        |
+
+## Multiple Output
+
+The `output` property can be an array of objects to define multiple output destinations.
+
+```json
+{
+  "output": [
+    {
+      "match": null,
+      "directory": "./i18n/everything"
+    },
+    {
+      "match": "Common.*",
+      "directory": "./i18n/common-only"
+    },
+    {
+      "match": "MyApp.*",
+      "directory": "./projects/MyApp/i18n"
+    }
+  ]
+}
+```
+
+| Option      | Type               | Description                                           |
+| ----------- | ------------------ | ----------------------------------------------------- |
+| `match`     | `string` or `null` | Optional pattern to filter resource by key. (1)       |
+| `directory` | `string`           | Directory to store generated files, relative to root. |
+
+(1) See the [micromatch](https://github.com/micromatch/micromatch) package for details of the patterns you can specify.
 
 # Examples
 
@@ -271,7 +303,7 @@ i18n generate
 Clone the repo and run the following commands in the `i18n-db` directory:
 
 ```bash
-npm install
+npm ci
 npm link
 npm run build
 ```

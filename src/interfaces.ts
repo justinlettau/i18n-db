@@ -5,6 +5,15 @@ export interface Configuration {
   defaultLocale: string;
   directory: string;
   nested?: boolean;
+  output?: string | OutputConfig[];
+}
+
+/**
+ * Output configuration.
+ */
+export interface OutputConfig {
+  match: string | null;
+  directory: string;
 }
 
 /**
@@ -13,6 +22,7 @@ export interface Configuration {
 export interface InitOptions {
   defaultLocale?: string;
   directory?: string;
+  output?: string;
 }
 
 /**

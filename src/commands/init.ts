@@ -18,6 +18,7 @@ export async function init(options: InitOptions) {
   let config: Configuration = {
     defaultLocale: options.defaultLocale || 'en-US',
     directory: options.directory || './i18n',
+    output: options.output || './i18n',
     nested: true,
   };
 
