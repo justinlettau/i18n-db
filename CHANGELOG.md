@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/justinlettau/i18n-db/compare/v1.6.0...v1.7.0) (2021-05-27)
+
+
+### Features
+
+* add output config ([b72abb7](https://github.com/justinlettau/i18n-db/commit/b72abb715130d68b26f836a949d592a7f17b7175))
+
 ## [1.6.0](https://github.com/justinlettau/i18n-db/compare/v1.5.3...v1.6.0) (2021-02-19)
 
 
