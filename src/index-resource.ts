@@ -1,4 +1,4 @@
-import program = require('commander');
+import { Command } from 'commander';
 
 import { resourceList } from './commands/resource-list';
 import { resourceRemove } from './commands/resource-remove';
@@ -8,6 +8,8 @@ import { resourceRename } from './commands/resource-rename';
 bootstrap();
 
 async function bootstrap() {
+  const program = new Command();
+
   program
     .command('list')
     .alias('ls')

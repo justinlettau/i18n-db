@@ -1,4 +1,4 @@
-import program = require('commander');
+import { Command } from 'commander';
 
 import { translationDuplicates } from './commands/translation-duplicates';
 import { translationList } from './commands/translation-list';
@@ -8,6 +8,8 @@ import { translationSet } from './commands/translation-set';
 bootstrap();
 
 async function bootstrap() {
+  const program = new Command();
+
   program
     .command('list')
     .option(

@@ -1,4 +1,4 @@
-import program = require('commander');
+import { Command } from 'commander';
 
 import { localeList } from './commands/locale-list';
 import { localeRemove } from './commands/locale-remove';
@@ -8,6 +8,8 @@ import { localeSet } from './commands/locale-set';
 bootstrap();
 
 async function bootstrap() {
+  const program = new Command();
+
   program
     .command('list')
     .alias('ls')
