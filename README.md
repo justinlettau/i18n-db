@@ -1,7 +1,5 @@
 [![NPM Version](https://badge.fury.io/js/i18n-db.svg)](https://badge.fury.io/js/i18n-db)
 ![CI](https://github.com/justinlettau/i18n-db/workflows/CI/badge.svg)
-[![Dependency Status](https://david-dm.org/justinlettau/i18n-db.svg)](https://david-dm.org/justinlettau/i18n-db)
-[![Dev Dependency Status](https://david-dm.org/justinlettau/i18n-db/dev-status.svg)](https://david-dm.org/justinlettau/i18n-db?type=dev)
 
 # i18n-db
 
