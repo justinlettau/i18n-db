@@ -57,7 +57,7 @@
     "inquirer": "^8.1.2",
     "micromatch": "^4.0.4",
     "sqlite3": "^5.0.2",
-    "ts-dot-prop": "^1.4.3",
+    "ts-dot-prop": "^2.0.0",
     "ts-util-is": "^1.2.1",
     "typeorm": "^0.2.36",
     "update-notifier": "^5.1.0",
