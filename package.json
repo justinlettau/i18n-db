@@ -61,7 +61,7 @@
     "ts-util-is": "^1.2.1",
     "typeorm": "^0.3.0",
     "update-notifier": "^5.1.0",
-    "xliff": "^5.6.0"
+    "xliff": "^6.0.0"
   },
   "devDependencies": {
     "@types/cli-table": "^0.3.0",
