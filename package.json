@@ -60,7 +60,7 @@
     "ts-dot-prop": "^1.4.3",
     "ts-util-is": "^1.2.1",
     "typeorm": "^0.3.0",
-    "update-notifier": "^5.1.0",
+    "update-notifier": "^6.0.0",
     "xliff": "^5.6.0"
   },
   "devDependencies": {
