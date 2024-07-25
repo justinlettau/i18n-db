@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.1](https://github.com/justinlettau/i18n-db/compare/v1.7.0...v1.7.1) (2024-07-25)
+
+
+### Bug Fixes
+
+* command ([b61808d](https://github.com/justinlettau/i18n-db/commit/b61808d34c70201bf142055a9383337b0dddb527))
+* **deps:** update dependency typeorm to ^0.3.0 ([fef51ea](https://github.com/justinlettau/i18n-db/commit/fef51ead6a899331aeaf174aa747dd08672d382b))
+
 ## [1.7.0](https://github.com/justinlettau/i18n-db/compare/v1.6.0...v1.7.0) (2021-05-27)
 
 
